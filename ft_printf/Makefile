@@ -6,7 +6,7 @@
 #    By: jmezzavilla <jmezzavilla@student.42.fr>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/19 21:48:02 by jmezzavilla       #+#    #+#              #
-#    Updated: 2023/04/19 23:12:26 by jmezzavilla      ###   ########.fr        #
+#    Updated: 2023/04/20 22:56:01 by jmezzavilla      ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,6 +20,9 @@ RM = rm -f
 
 FILES = ft_printf\
 		ft_putchar\
+		ft_putstr\
+		ft_putpointer\
+
 
 
 SRCS_DIR = ./

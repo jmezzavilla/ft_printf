@@ -1,29 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_putstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jmezzavilla <jmezzavilla@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/19 21:59:48 by jmezzavilla       #+#    #+#             */
-/*   Updated: 2023/04/20 22:59:58 by jmezzavilla      ###   ########.fr       */
+/*   Created: 2023/04/20 19:48:04 by jmezzavilla       #+#    #+#             */
+/*   Updated: 2023/04/20 22:46:26 by jmezzavilla      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
+#include "ft_printf.h"
 
-# include <stdarg.h>
-# include <unistd.h>
-# include <stdio.h>
+int	ft_putstr(char *str)
+{
+	int	count;
 
-#define HEXA_LOWER "0123456789abcdef"
-#define HEXA_UPPER "0123456789ABCDEF"
+	count = 0;
+	while (*str)
+	{
+		count += ft_putchar(*str);
+		str++;
+	}
+	return (count);
+}
 
-int ft_printf(const char *, ...);
-int	ft_putchar(char c);
-int ft_putstr(char *str);
-int	ft_putpointer(unsigned long int n);
-
-
-#endif
+/* int main()
+{
+    int count;
+    count = ft_putstr("victor");
+    printf("%d", count);
+} */
