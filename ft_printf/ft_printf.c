@@ -6,7 +6,7 @@
 /*   By: jmezzavilla <jmezzavilla@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/19 21:47:45 by jmezzavilla       #+#    #+#             */
-/*   Updated: 2023/04/22 12:32:44 by jmezzavilla      ###   ########.fr       */
+/*   Updated: 2023/04/22 17:21:24 by jmezzavilla      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,13 +26,13 @@ int	ft_check_format(char format, va_list args)
 	else if (format == 'p')
 		count += ft_putpointer(va_arg(args, unsigned long int));
 	else if (format == 'd' || format == 'i')
-		count += ft_putnbr(va_arg(args, int));
+		count += ft_putnbr_base(va_arg(args, int), DECIMAL);
 	else if (format == 'u')
-		count += ft_putuint(va_arg(args, unsigned int));
+		count += ft_putnbr_base(va_arg(args, unsigned int), DECIMAL);
 	else if (format == 'x')
-		count += ft_putbase(va_arg(args, int), HEXA_LOWER);
+		count += ft_putnbr_base(va_arg(args, long), HEXA_LOWER);
 	else if (format == 'X')
-		count += ft_putbase(va_arg(args, int), HEXA_UPPER);
+		count += ft_putnbr_base(va_arg(args, long), HEXA_UPPER);
 	return (count);
 }
 
@@ -63,10 +63,55 @@ int	ft_printf(const char *str, ...)
 	return (count);
 }
 
-/*  int	main(void)
+/* int	main(void)
 {
-	int count = ft_printf("%u\n",14657);
+	int	count;
+	int	countO;
+
+	ft_printf("teste percentual\n");
+	count = ft_printf("%%\n");
 	ft_printf("%d\n", count);
-	int count1 = printf("%u\n", 14657);
-	printf("%d\n", count1);
-}   */
+	countO = printf("%%\n");
+	printf("%d\n\n", countO);
+
+	ft_printf("teste caractere\n");
+	count = ft_printf("%c\n", 'a');
+	ft_printf("%d\n", count);
+	countO = printf("%c\n", 'a');
+	printf("%d\n\n", countO);
+
+	ft_printf("teste string\n");
+	count = ft_printf("%s\n", "Jessica");
+	ft_printf("%d\n", count);
+	countO = printf("%s\n", "Jessica");
+	printf("%d\n\n", countO);
+	
+	ft_printf("teste pointer\n");
+	count = ft_printf("%p\n", "Jessica");
+	ft_printf("%d\n", count);
+	countO = printf("%p\n", "Jessica");
+	printf("%d\n\n", countO);
+	
+	ft_printf("teste decimal e integer\n");
+	count = ft_printf("%d\n", INT_MIN);
+	ft_printf("%d\n", count);
+	countO = printf("%d\n", INT_MIN);
+	printf("%d\n\n", countO);
+	count = ft_printf("%i\n", INT_MAX);
+	ft_printf("%d\n", count);
+	countO = printf("%i\n", INT_MAX);
+	printf("%d\n\n", countO);
+	
+	ft_printf("teste unsigned int\n");
+	count = ft_printf("%u\n", UINT_MAX);
+	ft_printf("%d\n", count);
+	countO = printf("%u\n",  UINT_MAX);
+	printf("%d\n\n", countO);
+	
+	ft_printf("teste hexadecimal\n");
+	count = ft_printf("%x\n", 424534658);
+	ft_printf("%d\n", count);
+	countO = printf("%x\n", 424534658);
+	printf("%d\n", countO);
+}
+  */

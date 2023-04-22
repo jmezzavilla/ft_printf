@@ -6,7 +6,7 @@
 #    By: jmezzavilla <jmezzavilla@student.42.fr>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/19 21:48:02 by jmezzavilla       #+#    #+#              #
-#    Updated: 2023/04/22 12:37:45 by jmezzavilla      ###   ########.fr        #
+#    Updated: 2023/04/22 17:20:54 by jmezzavilla      ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,9 +20,7 @@ FILES = ft_printf.c\
 		ft_putchar.c\
 		ft_putstr.c\
 		ft_putpointer.c\
-		ft_putnbr.c\
-		ft_putuint.c\
-		ft_putbase.c\
+		ft_putnbr_base.c\
 
 SRCO = $(FILES:.c=.o)
 

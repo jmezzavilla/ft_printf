@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putbase.c                                       :+:      :+:    :+:   */
+/*   ft_putnbr_base.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jmezzavilla <jmezzavilla@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/22 12:21:11 by jmezzavilla       #+#    #+#             */
-/*   Updated: 2023/04/22 12:34:49 by jmezzavilla      ###   ########.fr       */
+/*   Updated: 2023/04/22 16:35:14 by jmezzavilla      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int	ft_strlen(char *c)
 	return (count);
 }
 
-int	ft_putbase(int n, char *base)
+int	ft_putnbr_base(long long n, char *base)
 {
 	int	count;
 	int	size_base;
@@ -36,12 +36,12 @@ int	ft_putbase(int n, char *base)
 	}
 	if (n >= size_base)
 	{
-		count += ft_putbase(n / size_base, base);
-		count += ft_putbase(n % size_base, base);
+		count += ft_putnbr_base(n / size_base, base);
+		count += ft_putnbr_base(n % size_base, base);
 	}
 	else
 	{
-		count += ft_putchar(base[n] + '0');
+		count += ft_putchar(base[n]);
 	}
 	return (count);
 }

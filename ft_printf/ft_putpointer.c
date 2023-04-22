@@ -6,7 +6,7 @@
 /*   By: jmezzavilla <jmezzavilla@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/20 22:43:56 by jmezzavilla       #+#    #+#             */
-/*   Updated: 2023/04/22 12:33:47 by jmezzavilla      ###   ########.fr       */
+/*   Updated: 2023/04/22 17:21:24 by jmezzavilla      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,19 +18,11 @@ int	ft_putpointer(unsigned long int n)
 
 	count = 0;
 	if (!n)
-		count += ft_putstr("(nil)");
-	else
 	{
-		if (n < 16)
-		{
-			count += ft_putstr("0x");
-			count += ft_putchar(HEXA_LOWER[n]);
-		}
-		else
-		{
-			count += ft_putpointer(n / 16);
-			count += ft_putchar(HEXA_LOWER[n % 16]);
-		}
+		count += ft_putstr("(nil)");
+		return (count);
 	}
+	count += ft_putstr("0x");
+	count += ft_putnbr_base(n, HEXA_LOWER);
 	return (count);
 }
