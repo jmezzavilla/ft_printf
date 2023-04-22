@@ -1,36 +1,45 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putpointer.c                                    :+:      :+:    :+:   */
+/*   ft_putnbr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jmezzavilla <jmezzavilla@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/20 22:43:56 by jmezzavilla       #+#    #+#             */
-/*   Updated: 2023/04/22 12:33:47 by jmezzavilla      ###   ########.fr       */
+/*   Created: 2023/04/22 11:06:38 by jmezzavilla       #+#    #+#             */
+/*   Updated: 2023/04/22 12:38:47 by jmezzavilla      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_putpointer(unsigned long int n)
+int	ft_putnbr(int n)
 {
 	int	count;
 
 	count = 0;
-	if (!n)
-		count += ft_putstr("(nil)");
+	if (n == INT_MIN)
+	{
+		count += ft_putstr("-2147483648");
+		return (count);
+	}
+	if (n < 0)
+	{
+		count += ft_putchar('-');
+		n *= -1;
+	}
+	if (n >= 10)
+	{
+		count += ft_putnbr(n / 10);
+		count += ft_putnbr(n % 10);
+	}
 	else
 	{
-		if (n < 16)
-		{
-			count += ft_putstr("0x");
-			count += ft_putchar(HEXA_LOWER[n]);
-		}
-		else
-		{
-			count += ft_putpointer(n / 16);
-			count += ft_putchar(HEXA_LOWER[n % 16]);
-		}
+		count += ft_putchar(n + '0');
 	}
 	return (count);
 }
+
+/* int main()
+{
+    ft_putnbr(56848);
+} */
