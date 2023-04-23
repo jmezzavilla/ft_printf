@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jmezzavilla <jmezzavilla@student.42.fr>    +#+  +:+       +#+        */
+/*   By: jmezzavilla <jessicamezzavilla@gmail.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/19 21:47:45 by jmezzavilla       #+#    #+#             */
-/*   Updated: 2023/04/22 17:21:24 by jmezzavilla      ###   ########.fr       */
+/*   Updated: 2023/04/23 17:35:50 by jmezzavilla      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,11 +28,11 @@ int	ft_check_format(char format, va_list args)
 	else if (format == 'd' || format == 'i')
 		count += ft_putnbr_base(va_arg(args, int), DECIMAL);
 	else if (format == 'u')
-		count += ft_putnbr_base(va_arg(args, unsigned int), DECIMAL);
+		count += ft_putnbr_base_us(va_arg(args, unsigned int), DECIMAL);
 	else if (format == 'x')
-		count += ft_putnbr_base(va_arg(args, long), HEXA_LOWER);
+		count += ft_putnbr_base_us(va_arg(args, unsigned int), HEXA_LOWER);
 	else if (format == 'X')
-		count += ft_putnbr_base(va_arg(args, long), HEXA_UPPER);
+		count += ft_putnbr_base_us(va_arg(args, unsigned int), HEXA_UPPER);
 	return (count);
 }
 
@@ -73,13 +73,11 @@ int	ft_printf(const char *str, ...)
 	ft_printf("%d\n", count);
 	countO = printf("%%\n");
 	printf("%d\n\n", countO);
-
 	ft_printf("teste caractere\n");
 	count = ft_printf("%c\n", 'a');
 	ft_printf("%d\n", count);
 	countO = printf("%c\n", 'a');
 	printf("%d\n\n", countO);
-
 	ft_printf("teste string\n");
 	count = ft_printf("%s\n", "Jessica");
 	ft_printf("%d\n", count);
@@ -114,4 +112,4 @@ int	ft_printf(const char *str, ...)
 	countO = printf("%x\n", 424534658);
 	printf("%d\n", countO);
 }
-  */
+ */
