@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr_base.c                                       :+:      :+:    :+:   */
+/*   ft_putnbr_base.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jmezzavilla <jmezzavilla@student.42.fr>    +#+  +:+       +#+        */
+/*   By: jmezzavilla <jessicamezzavilla@gmail.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/22 12:21:11 by jmezzavilla       #+#    #+#             */
-/*   Updated: 2023/04/22 16:35:14 by jmezzavilla      ###   ########.fr       */
+/*   Created: 2023/04/23 16:09:51 by jmezzavilla       #+#    #+#             */
+/*   Updated: 2023/04/23 17:12:14 by jmezzavilla      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,26 +22,33 @@ int	ft_strlen(char *c)
 	return (count);
 }
 
-int	ft_putnbr_base(long long n, char *base)
+int	ft_putnbr_base(long int n, char *base)
 {
 	int	count;
-	int	size_base;
 
-	size_base = ft_strlen(base);
 	count = 0;
 	if (n < 0)
 	{
 		count += ft_putchar('-');
 		n *= -1;
 	}
+	count += ft_putnbr_base_us(n, base);
+	return (count);
+}
+
+int	ft_putnbr_base_us(unsigned long int n, char *base)
+{
+	int		count;
+	size_t	size_base;
+
+	size_base = ft_strlen(base);
+	count = 0;
 	if (n >= size_base)
 	{
-		count += ft_putnbr_base(n / size_base, base);
-		count += ft_putnbr_base(n % size_base, base);
+		count += ft_putnbr_base_us(n / size_base, base);
+		count += ft_putnbr_base_us(n % size_base, base);
 	}
 	else
-	{
 		count += ft_putchar(base[n]);
-	}
 	return (count);
 }
